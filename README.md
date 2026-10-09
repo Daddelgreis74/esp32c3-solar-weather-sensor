@@ -13,6 +13,23 @@ Designed for 24/7 maintenance-free outdoor operation using ESP32 Deep Sleep, zer
 
 ## 🇩🇪 Deutsch
 
+### 🛒 Benötigte Hardware-Komponenten (Stückliste / BOM)
+
+| Komponente | Bezeichnung / Spezialisierung | Bauform / Spezifikation | Funktion im Projekt |
+|---|---|---|---|
+| **Mikrocontroller** | **Seeed Studio XIAO ESP32-C3** | USB-C, RISC-V 160MHz, 4MB Flash, 2.54mm Pitch | Hauptprozessor mit WLAN, Deep-Sleep & Akkuladeelektronik |
+| **Sensor** | **Sensirion SHT31-DIS** Modul | I2C (Adresse `0x44`), 4-Pin Anschluss | Präzisions-Messung von Temperatur (-40 bis +125 °C) & Luftfeuchtigkeit (0-100%) |
+| **Solarpanel** | **5V Solarpanel** | 5V / 1W bis 3W (z. B. 110x60 mm) | Lädt den Akku tagsüber bei Sonneneinstrahlung nach |
+| **Akku** | **3,7V Li-Ion / LiPo Akku** | 3.7V nominal (z. B. 18650 Zelle 2200-3000 mAh oder LiPo-Pack) | Unterbrechungsfreie Stromversorgung für Tag & Nacht |
+| **Schutzdiode** | **Schottky-Diode** | SOD-123 (z. B. `1N5819W` oder `SS14`) | Verhindert Rückstrom vom Akku in das Solarpanel bei Nacht |
+| **Widerstände (2x)** | **200 kΩ SMD-Widerstände** | 0805 SMD (2 Stück) | 1:2 Spannungsteiler an Pin `A2` für präzise Akkuspannungsmessung |
+| **Schalter / Jumper** | **Wartungsschalter / Jumper** | 2-Pin Stiftleiste (2.54mm) + Jumper-Brücke | Schaltet Pin `D3` auf `GND` für Dauerbetrieb / OTA-Updates / Serial Monitor |
+| **Akku-Stecker** | **JST-PH 2.0mm** Steckverbinder | 2-Pin Gewinkelt / Vertikal | Sichere Steckverbindung für den Li-Ion Akku |
+| **Solar-Klemme** | **2-Pin Schraubklemme** | 5.08mm Pitch (z. B. Phoenix Contact) | Einfacher Anschluss für die Kabel des Solarpanels |
+| **Buchsenleisten** | **2x 7-Pin Buchsenleisten** | 2.54mm Pitch | Gesockelte Montage des XIAO ESP32-C3 Moduls |
+
+---
+
 ### Hauptmerkmale
 * 🔋 **Ultra-Low-Power Deep-Sleep:** Schläft 30 Minuten (konfigurierbar) und schaltet die Stromzufuhr des SHT31-Sensors im Schlaf über Pin `D1` vollständig ab (0 µA Standby).
 * 📡 **Dual-Telemetrie:** Sendet die Wetterdaten zeitgleich als blitzschnellen **UDP-Broadcast (Port 8888)** an alle Geräte im Heimnetzwerk UND per **HTTP/HTTPS POST** an einen zentralen Dashboard-Server.
@@ -51,6 +68,23 @@ Sowohl per UDP Broadcast (Port `8888`) als auch per HTTP POST wird folgendes JSO
 
 ## 🇬🇧 English
 
+### 🛒 Hardware Components (Bill of Materials / BOM)
+
+| Component | Part / Model | Package / Form Factor | Function |
+|---|---|---|---|
+| **Microcontroller** | **Seeed Studio XIAO ESP32-C3** | USB-C, RISC-V 160MHz, 4MB Flash, 2.54mm Pitch | Core MCU with WiFi, BLE, Deep-Sleep & Onboard Li-Ion Charger |
+| **Sensor** | **Sensirion SHT31-DIS** Module | I2C (Address `0x44`), 4-Pin Header | Precision Temperature (-40 to +125 °C) & Humidity (0-100%) sensor |
+| **Solar Panel** | **5V Solar Panel** | 5V / 1W to 3W (e.g., 110x60 mm) | Charges the 3.7V battery during daylight |
+| **Battery** | **3.7V Li-Ion / LiPo Battery** | 3.7V Nominal (18650 cell 2200-3000 mAh or LiPo pack) | Uninterruptible power supply for day & night operation |
+| **Protection Diode** | **Schottky Barrier Diode** | SOD-123 (`1N5819W` or `SS14`) | Prevents reverse battery current leakage into solar panel at night |
+| **Resistors (2x)** | **200 kΩ SMD Resistors** | 0805 SMD (2 pieces) | 1:2 Voltage divider on Pin `A2` for safe 0-3.3V ADC battery sensing |
+| **Switch / Jumper** | **Maintenance Switch / Jumper** | 2-Pin 2.54mm Pin Header + Jumper Shunt | Pulls Pin `D3` to `GND` to keep MCU awake for OTA / Serial Monitor |
+| **Battery Header** | **JST-PH 2.0mm** Connector | 2-Pin Right Angle / Vertical | Reversible polarized battery plug |
+| **Solar Terminal** | **2-Pin Screw Terminal** | 5.08mm Pitch (e.g. Phoenix MKDS) | Heavy-duty terminal block for solar panel wire leads |
+| **Header Sockets** | **2x 7-Pin Female Headers** | 2.54mm Pitch | Socketed header mounting for XIAO ESP32-C3 board |
+
+---
+
 ### Key Features
 * 🔋 **Ultra-Low-Power Deep Sleep:** Sleeps for 30 minutes (configurable) and completely cuts SHT31 sensor power via pin `D1` during sleep (0 µA standby).
 * 📡 **Dual Telemetry Transmission:** Simultaneously broadcasts weather telemetry via **UDP Broadcast (Port 8888)** to all local network devices AND posts via **HTTP/HTTPS POST** to a central dashboard server.
@@ -70,9 +104,9 @@ Sowohl per UDP Broadcast (Port `8888`) als auch per HTTP POST wird folgendes JSO
 * Sensirion SHT31 Temperature & Humidity Sensor (I2C 0x44)
 * 3.7V Li-Ion / LiPo Battery + 5V Solar Panel + SOD-123 Schottky Diode
 
-### 2. Clone & Vorkonfiguration / Configuration
+### 2. Clone & Configuration
 ```bash
-git clone https://github.com/YOUR-USERNAME/esp32c3-solar-weather-sensor.git
+git clone https://github.com/Daddelgreis74/esp32c3-solar-weather-sensor.git
 cd esp32c3-solar-weather-sensor
 ```
 
