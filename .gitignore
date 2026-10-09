@@ -1,0 +1,15 @@
+# PlatformIO Build & Local Environment
+.pio/
+.pioenvs/
+.piolibdeps/
+.clang_complete
+.gcc-flags.json
+
+# Local Configuration overrides containing private credentials
+include/config.h
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
