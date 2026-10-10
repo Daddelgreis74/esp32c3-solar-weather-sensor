@@ -96,7 +96,21 @@ Sowohl per UDP Broadcast (Port `8888`) als auch per HTTP POST wird folgendes JSO
 
 ---
 
-## 🛠️ Quick Start & Installation
+## ⚡ Quick Flash / Schnelles Flashen (No Coding Needed / Ohne Installation)
+
+### 🚀 1-Click Browser Flash (Empfohlen)
+Du musst nichts kompilieren oder installieren! Lade einfach die fertige Firmware aus den [Releases](https://github.com/Daddelgreis74/esp32c3-solar-weather-sensor/releases) herunter:
+
+1. Lade **`esp32c3-solar-weather-sensor-v1.0.0-factory.bin`** aus dem neuesten Release herunter.
+2. Öffne einen Web-Flasher im Chrome oder Edge Browser:
+   * 👉 **[web.esphome.io](https://web.esphome.io)** oder **[Adafruit WebSerial ESPTool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/)**
+3. Verbinde den Seeed Studio XIAO ESP32-C3 per USB-Kabel mit dem PC.
+4. Klicke auf **Connect**, wähle den COM-Port aus und flashe die Datei `esp32c3-solar-weather-sensor-v1.0.0-factory.bin` bei Offset `0x0`.
+5. Nach dem Flashen öffnet der ESP32 automatisch den Hotspot **`XIAO-C3-Solar-AP`**. Verbinde dich mit dem Smartphone und gib dein WLAN & deine Dashboard-URL ein – fertig!
+
+---
+
+## 🛠️ Build from Source / Aus Quellcode kompilieren (PlatformIO)
 
 ### 1. Requirements
 * [PlatformIO IDE](https://platformio.org/) (VSCode extension or CLI)
